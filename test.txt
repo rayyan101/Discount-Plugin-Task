@@ -110,7 +110,7 @@ new WDP_priceshow();
 
 
 global $woocommerce;
-		$items = $woocommerce->cart->get_cart();
+$items = $woocommerce->cart->get_cart();
 	
 			foreach($items as $item => $values) { 
 				$_product =  wc_get_product( $values['data']->get_id());
