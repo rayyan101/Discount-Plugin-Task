@@ -1,5 +1,9 @@
 <?php 
 
+	/**
+	* This class is Loader Class we are using for Enqueue Scrips and including other Classes and Files 
+	*/
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }

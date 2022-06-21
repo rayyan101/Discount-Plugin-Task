@@ -1,5 +1,7 @@
 <?php 
-
+	/**
+	* in this class we are showing discount field in product page (Admin Dashboard) and saving values in database 
+	*/
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -27,9 +29,8 @@ if ( ! class_exists( 'WDP_metabox' ) ) {
 				array( 
 					'id'            => 'discount_checkbox',
 					'class'         => 'checkbox',  
-					'label'         => __('Enable Discount',), 
+					'label'         => __('Enable Discount'), 
 					'description'   => __( 'this will enable Discount' ),
-					// 'value'         => get_post_meta('discount_checkbox', true ), 
 				)
 			);
 			woocommerce_wp_text_input(
@@ -55,7 +56,6 @@ if ( ! class_exists( 'WDP_metabox' ) ) {
 		* Saving value of discount field in database 
 		*/
 		public function WDP_textfield_value_saving( $post_id ) {
-
 			$discount = isset( $_POST['discount_textfield'] ) ? $_POST['discount_textfield'] : '';
 			$checkbox = isset( $_POST['discount_checkbox'] ) ? $_POST['discount_checkbox'] : '';
 			if( $discount ) {
