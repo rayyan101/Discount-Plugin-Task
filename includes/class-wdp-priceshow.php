@@ -24,6 +24,7 @@ if ( ! class_exists( 'WDP_priceshow' ) ) {
 		* Discounted Price Shwowing in product page and Replacing with regular Price   
 		*/ 
 		public function WDP_discount_show( $price ) {
+			
 			global $post;
 			$product_id = $post->ID;
 			$checbox_value = get_post_meta( $product_id, 'discount_checkbox', true );

@@ -31,6 +31,9 @@ if ( ! class_exists( 'WDP_metabox' ) ) {
 					'class'         => 'checkbox',  
 					'label'         => __('Enable Discount'), 
 					'description'   => __( 'this will enable Discount' ),
+					
+					
+				
 				)
 			);
 			woocommerce_wp_text_input(
@@ -44,9 +47,7 @@ if ( ! class_exists( 'WDP_metabox' ) ) {
 					'custom_attributes' => array(
 						'step' => 'any',
 						'min' => '0',
-						'max' => '100',
-						'required' => true
-						
+						'max' => '100'
 					)
 				)
 			);
@@ -58,16 +59,25 @@ if ( ! class_exists( 'WDP_metabox' ) ) {
 		public function WDP_textfield_value_saving( $post_id ) {
 			$discount = isset( $_POST['discount_textfield'] ) ? $_POST['discount_textfield'] : '';
 			$checkbox = isset( $_POST['discount_checkbox'] ) ? $_POST['discount_checkbox'] : '';
-			if( $discount ) {
+			if ($_POST['discount_checkbox'] == true){
 				if( $discount > 0 && $discount < 100) {
 					update_post_meta( $post_id, "discount_textfield", $discount  );
 					update_post_meta( $post_id, "discount_checkbox", $checkbox  );
 				}
 			}
+			if ($_POST['discount_checkbox'] == false){
+				
+					update_post_meta( $post_id, "discount_textfield", ""  );
+					update_post_meta( $post_id, "discount_checkbox", ""  );
+				
+			}
 			
-		}
+			
+
+	
+
 	}
-}
+}}
 new WDP_metabox(); 
 ?>
 

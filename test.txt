@@ -56,13 +56,35 @@ new WDP_priceshow();
 
 
 
+function discountController(){
+    
+    var checkBox = document.getElementById('discount_controller');
+    var discountField = document.getElementById('dynamic_discount');
+    var discountFieldBox = document.getElementsByClassName('dynamic_discount_field')[0];
+    
+    if(checkBox.checked)
+    {
+        discountFieldBox.style.display = 'block';
+        discountField.setAttribute('required', '');
+    }
+    else
+    {
+        discountFieldBox.style.display = 'none';
+        discountField.removeAttribute('required');
+    }
+    
+}
 
 
 
 
+ var a = document.getElementById('discount_textfield');
+            a.setAttribute('required');
 
 
 
+
+  $('#discount_textfield').prop('required',true); 
 
 
 
